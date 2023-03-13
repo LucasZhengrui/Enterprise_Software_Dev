@@ -1,0 +1,30 @@
+{% include 'common/header.html' %} {% include 'common/nav.html' %}
+<div class="container mt-5">
+    <h1>人工智能助手</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">问答</h5>
+                    <hr>
+                    <div class="mb-3">
+                        <label for="question" class="form-label">问题</label>
+                        <input type="text" class="form-control" id="question">
+                    </div>
+                    <button type="button" class="btn btn-primary">提交</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">回答</h5>
+                    <hr>
+                    <div class="text-muted mb-3">请输入您的问题，然后点击“提交”按钮。</div>
+                    <div id="answer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
