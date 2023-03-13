@@ -1,3 +1,47 @@
+## 安装步骤
+
+1.先在codio上面设置虚拟环境
+   ```shell
+    python3 -m venv .venv 
+    source .venv/bin/activate 
+```
+2.把库拉下来或者更新
+   ```shell
+ git clone git@github.com:LucasZhengrui/Enterprise_Software_Dev_Note.git
+```
+或者
+
+```shell
+git pull origin main
+```
+
+4.在 mysite setting里面的ALLOWED_HOSTS把自己codio的域名加进去
+```shell
+ALLOWED_HOSTS = ['127.0.0.1','albumhexagon-canvasgenesis-8000.codio-box.uk']
+```
+5.执行
+
+```shell
+python3 manage.py runserver 0.0.0.0:8000
+```
+如果报错 看看是什么 有可能是自己没安装django 参考布鲁斯的教程搞一下就行。
+**
+注意我在项目根目录也就是Enterprise_Software_Dev_Note里创建了 .gitignore 
+目的是为了不会把codio上面的虚拟环境目录.venv与python cache传到git上去**
+
+
+## 开发步骤
+
+1.修改自己功能代码
+
+2.git pull origin main 拉一下别人推的代码，有冲突处理冲突
+
+3.git add --all
+
+4.git commit -m '说一下自己改什么了'
+
+5.git push origin main
+
 ## **模块分为:**
 
 ## 所有的前端页面
