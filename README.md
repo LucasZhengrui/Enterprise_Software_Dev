@@ -29,6 +29,18 @@ python3 manage.py runserver 0.0.0.0:8000
 注意我在项目根目录也就是Enterprise_Software_Dev_Note里创建了 .gitignore 
 目的是为了不会把codio上面的虚拟环境目录.venv与python cache传到git上去**
 
+## .gitignore 说明
+
+根目录下的 .gitignore 文件是可以让目录忽略提交到github,所以我添加了
+
+```shell
+.venv/
+*/__pycache__/
+*/*/__pycache__/
+__pycache__/
+```
+为了不让每个人的虚拟环境和python django编译时候产生的缓存跑到github上去
+
 
 ## 开发步骤
 
