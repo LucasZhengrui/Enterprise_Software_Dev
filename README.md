@@ -1,5 +1,5 @@
-## 数据表 -- by wanglei
-
+## 数据表建议 -- wanglei版本
+我们可以创建两个表，一个用于存储灾害事件的基本信息（用于列表页），另一个用于存储灾害事件的详细信息（用于详情页）。
 1. disasters_summary（灾害概要）
 
 | 字段名         | 数据类型 | 描述                                       |
@@ -126,29 +126,28 @@ __pycache__/
 
 # **模块分为:**
 
-## 所有的前端页面-- zhengrui cinwei bangqi leiwang
+## 所有的前端页面-- zhengrui cinwei bangqi wanglei
 不要用JS-作业要求
 根据自己负责的模块修改
 
-## 公共前端页面 + 导航栏的权限控制-- leiwang
+## 公共前端页面 + 导航栏的权限控制-- wanglei
 header头，导航栏
 
-## 数据录入模块 -- cinwei(主要) + leiwang(配合设计表)
+## 数据录入模块 -- cinwei(主要) + wanglei(配合设计表)
 要求数据录入到数据库要完整精确
 prase_csv.py : csv精简数据（3000-7000条），设计数据库，设计表结构， 数据录入脚本
 
-## 仪表盘模块 -- leiwang
+## 仪表盘模块 -- wanglei
 打算作为首页，要做的好看一些，各种top10,统计图 
 disaster_dashboard： 仪表盘大屏显示，柱状图，饼图，地图，报警 等统计数据
 
 ## Ucenter模块-- bangqi
-不能用js操作cookie的方式，把用户登录信息存在数据库里。东西比较多。 
 disaster_authen ：1.用户认证 2.登录 3.注册 4.用户列表 5.封禁 6.设置权限 等等。
 
-## 接入open ai模块 --leiwang
+## 接入open ai模块 --wanglei
 disaster_chat ：使用openai服务，进行定制化服务（需求待定）。
 
-## 列表页模块 --leiwang
+## 列表页模块 --wanglei
 功能较多 需要展示数据，做分页，做搜索，逻辑删除等
 disaster_list ：数据管理：列表页+分页+搜索
 
