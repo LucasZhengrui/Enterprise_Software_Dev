@@ -68,7 +68,7 @@ prase_csv.py : csv精简数据（3000-7000条），设计数据库，设计表�
 打算作为首页，要做的好看一些，各种top10,统计图 
 disaster_dashboard： 仪表盘大屏显示，柱状图，饼图，地图，报警 等统计数据
 
-## Ucenter模块-- bangbqi
+## Ucenter模块-- bangqi
 不能用js操作cookie的方式，把用户登录信息存在数据库里。 
 disaster_authen ：1.用户认证 2.登录 3.注册等。
 
