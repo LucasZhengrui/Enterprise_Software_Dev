@@ -54,11 +54,14 @@ __pycache__/
 
 5.git push origin main
 
-## **模块分为:**
+# **模块分为:**
 
-## 所有的前端页面
+## 所有的前端页面-- zhengrui cinwei bangqi leiwang
 不要用JS-作业要求
 根据自己负责的模块修改
+
+## 公共前端页面-- leiwang
+header头，导航栏
 
 ## 数据录入模块 -- cinwei(主要) + leiwang(配合设计表)
 要求数据录入到数据库要完整精确
@@ -69,8 +72,8 @@ prase_csv.py : csv精简数据（3000-7000条），设计数据库，设计表�
 disaster_dashboard： 仪表盘大屏显示，柱状图，饼图，地图，报警 等统计数据
 
 ## Ucenter模块-- bangqi
-不能用js操作cookie的方式，把用户登录信息存在数据库里。 
-disaster_authen ：1.用户认证 2.登录 3.注册等。
+不能用js操作cookie的方式，把用户登录信息存在数据库里。东西比较多。 
+disaster_authen ：1.用户认证 2.登录 3.注册 4.用户列表 5.封禁 6.设置权限 等等。
 
 ## 接入open ai模块 --leiwang
 disaster_chat ：使用openai服务，进行定制化服务（需求待定）。
