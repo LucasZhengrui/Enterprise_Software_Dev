@@ -1,3 +1,73 @@
+## 数据表 -- by wanglei
+
+1. disasters_summary（灾害概要）
+
+| 字段名         | 数据类型 | 描述                                       |
+|------------|-------|------------------------------------------|
+| dis_id     | INTEGER | 灾害事件的唯一标识符，设为主键                        |
+| year       | INTEGER | 灾害事件发生的年份                              |
+| glide      | TEXT    | 灾害事件的GLIDE编号                          |
+| disaster_group | TEXT    | 灾害事件的大类别                            |
+| disaster_type  | TEXT    | 灾害事件的类型                              |
+| country    | TEXT    | 灾害事件发生的国家或地区                        |
+| iso        | TEXT    | 该国家或地区的ISO 3166-1 alpha-3代码       |
+| total_affected | INTEGER | 该灾害事件总共影响到的人数                   |
+| total_damages_usd | REAL    | 该灾害事件总共造成的损失，单位为千美元         |
+
+2. disasters_details（灾害详情）
+
+| 字段名               | 数据类型 | 描述                                 |
+|------------------|-------|------------------------------------|
+| dis_id           | INTEGER | 灾害事件的唯一标识符，与disasters_summary表的dis_id关联 |
+| seq              | INTEGER | 该年中该灾害事件的序号                     |
+| disaster_subgroup   | TEXT    | 灾害事件的子类别                       |
+| disaster_subtype    | TEXT    | 灾害事件的子类型                       |
+| disaster_subsubtype | TEXT    | 灾害事件的子子类型                     |
+| event_name       | TEXT    | 灾害事件的名称或描述                     |
+| region           | TEXT    | 该国家或地区所属的联合国统计分区              |
+| continent        | TEXT    | 该国家或地区所属的洲                      |
+| location         | TEXT    | 灾害事件发生的具体位置                     |
+| origin           | TEXT    | 灾害事件的起因或来源                       |
+| associated_dis   | TEXT    | 与该灾害事件相关的其他灾害事件的Glide编号  |
+| associated_dis2  | TEXT    | 与该灾害事件相关的另一个灾害事件的Glide编号 |
+| ofda_response    | INTEGER | 是否有美国联邦紧急管理署（OFDA）参与应对该灾害事件（0：否，1：是） |
+| appeal           | INTEGER | 联合国是否发布了为该灾害事件发起的人道主义援助呼吁（0：否，1：是） |
+| declaration      | INTEGER | 联合国是否发布了为该灾害事件的官方声明（0：否，1：是）  |
+| aid_contribution | REAL    | 提供给该灾害事件的援助总金额                 |
+| dis_mag_value    | REAL    | 该灾害事件的规模或严重程度                   |
+| dis_mag_scale    | TEXT    | 灾害事件规模或严重程度的计量标准             |
+| latitude         | REAL    | 灾害事件发生地的纬度                         |
+| longitude        | REAL    | 灾害事件发生地的经度                         |
+| local_time       | TEXT    | 灾害事件发生的当地时间                       |
+| river_basin      | TEXT    | 该灾害事件所在的河流流域                     |
+| start_year       | INTEGER | 灾害事件开始的年份                           |
+| start_month      | INTEGER | 灾害事件开始的月份                           |
+| start_day        | INTEGER | 灾害事件开始的日期                           |
+| end_year         | INTEGER | 灾害事件结束的年份                           |
+| end_month        | INTEGER | 灾害事件结束的月份                           |
+| end_day          | INTEGER | 灾害事件结束的日期                           |
+| total_deaths     | INTEGER | 该灾害事件导致的总死亡人数                   |
+| no_injured       | INTEGER | 该灾害事件导致的受伤人数                     |
+| no_affected      | INTEGER | 该灾害事件导致的受影响人数                   |
+| no_homeless      | INTEGER | 该灾害事件导致的无家可归的人数               |
+| reconstruction_costs_usd | REAL | 灾后重建的总成本，单位为千美元         |
+| insured_damages_usd      | REAL | 该灾害事件造成的已投保损失，单位为千美元 |
+| total_damages_usd        | REAL | 该灾害事件总共造成的损失，单位为千美元   |
+| cpi               | REAL    | 该灾害事件发生时的消费者物价指数             |
+| adm_level         | INTEGER | 地理行政区划级别，例如国家、省、市、县等      |
+| admin1_code       | TEXT    | 一级行政区划的代码                           |
+| admin2_code       | TEXT    | 二级行政区划的代码                           |
+| geo_locations     | TEXT    | 该灾害事件的地理位置信息                     |
+
+3.user（用户表）
+| 字段名         | 数据类型 | 描述                                       |
+|---------------|----------|--------------------------------------------|
+| user_id       | INTEGER  | 用户ID，唯一标识一个用户                   |
+| user_name     | TEXT     | 用户名称                                   |
+| user_level    | INTEGER  | 用户级别，用于表示用户权限等级             |
+| login_status  | TEXT     | 登陆状态，例如：1表示已登录、0表示未登录             |
+| is_banned     | INTEGER  | 是否封禁，用0表示未封禁，1表示封禁           |
+
 ## 安装步骤
 
 1.先在codio上面设置虚拟环境
@@ -60,7 +130,7 @@ __pycache__/
 不要用JS-作业要求
 根据自己负责的模块修改
 
-## 公共前端页面-- leiwang
+## 公共前端页面 + 导航栏的权限控制-- leiwang
 header头，导航栏
 
 ## 数据录入模块 -- cinwei(主要) + leiwang(配合设计表)
