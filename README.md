@@ -6,7 +6,6 @@
 |------------|-------|------------------------------------------|
 | dis_id     | INTEGER | 灾害事件的唯一标识符，设为主键                        |
 | year       | INTEGER | 灾害事件发生的年份                              |
-| glide      | TEXT    | 灾害事件的GLIDE编号                          |
 | disaster_group | TEXT    | 灾害事件的大类别                            |
 | disaster_type  | TEXT    | 灾害事件的类型                              |
 | country    | TEXT    | 灾害事件发生的国家或地区                        |
