@@ -23,147 +23,34 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Year</th>
-                        <th scope="col">Seq</th>
+                        <th scope="col">Disaster Group</th>
                         <th scope="col">Disaster Type</th>
-                        <th scope="col">Event Name</th>
                         <th scope="col">Country</th>
-                        <th scope="col">Total Damages</th>
-                        <th scope="col">操作</th>
+                        <th scope="col">ISO</th>
+                        <th scope="col">Total Affected</th>
+                        <th scope="col">Total Damages (USD)</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for disaster in disasters %}
                     <tr>
-                        <th scope="row">1</th>
-                        <td>numerical values1</td>
-                        <td>numerical values2</td>
-                        <td>numerical values3</td>
-                        <td>numerical values4</td>
-                        <td>numerical values5</td>
-                        <td>numerical values6</td>
+                        <th scope="row">{{ disaster.dis_id }}</th>
+                        <td>{{ disaster.year }}</td>
+                        <td>{{ disaster.disaster_group }}</td>
+                        <td>{{ disaster.disaster_type }}</td>
+                        <td>{{ disaster.country }}</td>
+                        <td>{{ disaster.iso }}</td>
+                        <td>{{ disaster.total_affected }}</td>
+                        <td>{{ disaster.total_damages_usd }}</td>
                         <td>
-                            <a href="/edit" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="/edit/{{ disaster.dis_id }}" class="btn btn-primary btn-sm">Edit</a>
                             <a href="/list" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>numerical values1</td>
-                        <td>numerical values2</td>
-                        <td>numerical values3</td>
-                        <td>numerical values4</td>
-                        <td>numerical values5</td>
-                        <td>numerical values6</td>
-                        <td>
-                            <a href="/edit" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="/list" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>numerical values1</td>
-                        <td>numerical values2</td>
-                        <td>numerical values3</td>
-                        <td>numerical values4</td>
-                        <td>numerical values5</td>
-                        <td>numerical values6</td>
-                        <td>
-                            <a href="/edit" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="/list" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>numerical values1</td>
-                        <td>numerical values2</td>
-                        <td>numerical values3</td>
-                        <td>numerical values4</td>
-                        <td>numerical values5</td>
-                        <td>numerical values6</td>
-                        <td>
-                            <a href="/edit" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="/list" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>numerical values1</td>
-                        <td>numerical values2</td>
-                        <td>numerical values3</td>
-                        <td>numerical values4</td>
-                        <td>numerical values5</td>
-                        <td>numerical values6</td>
-                        <td>
-                            <a href="/edit" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="/list" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">6</th>
-                        <td>numerical values1</td>
-                        <td>numerical values2</td>
-                        <td>numerical values3</td>
-                        <td>numerical values4</td>
-                        <td>numerical values5</td>
-                        <td>numerical values6</td>
-                        <td>
-                            <a href="/edit" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="/list" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">7</th>
-                        <td>numerical values1</td>
-                        <td>numerical values2</td>
-                        <td>numerical values3</td>
-                        <td>numerical values4</td>
-                        <td>numerical values5</td>
-                        <td>numerical values6</td>
-                        <td>
-                            <a href="/edit" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="/list" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">8</th>
-                        <td>numerical values1</td>
-                        <td>numerical values2</td>
-                        <td>numerical values3</td>
-                        <td>numerical values4</td>
-                        <td>numerical values5</td>
-                        <td>numerical values6</td>
-                        <td>
-                            <a href="/edit" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="/list" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">9</th>
-                        <td>numerical values1</td>
-                        <td>numerical values2</td>
-                        <td>numerical values3</td>
-                        <td>numerical values4</td>
-                        <td>numerical values5</td>
-                        <td>numerical values6</td>
-                        <td>
-                            <a href="/edit" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="/list" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">10</th>
-                        <td>numerical values1</td>
-                        <td>numerical values2</td>
-                        <td>numerical values3</td>
-                        <td>numerical values4</td>
-                        <td>numerical values5</td>
-                        <td>numerical values6</td>
-                        <td>
-                            <a href="/edit" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="/list" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
@@ -172,16 +59,22 @@
         <div class="col-12 col-md-6">
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-end">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一页</a>
+                    <li class="page-item {% if not disasters.has_previous %}disabled{% endif %}">
+                        <a class="page-link" href="?page=1" tabindex="-1" aria-disabled="true">Home</a>
                     </li>
-                    <li class="page-item active" aria-current="page">
-                        <a class="page-link" href="#">1 <span class="visually-hidden">(current)</span></a>
+                    <li class="page-item {% if not disasters.has_previous %}disabled{% endif %}">
+                        <a class="page-link" href="{% if disasters.has_previous %}?page={{ disasters.previous_page_number }}{% else %}#{% endif %}" tabindex="-1" aria-disabled="true">Previous page</a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">下一页</a>
+                    {% for i in disasters.paginator.page_range %} {% if disasters.number == i %}
+                    <li class="page-item active" aria-current="page"><a class="page-link" href="?page={{ i }}">{{ i }} <span class="visually-hidden">(current)</span></a></li>
+                    {% else %}
+                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %} {% endfor %}
+                    <li class="page-item {% if not disasters.has_next %}disabled{% endif %}">
+                        <a class="page-link" href="{% if disasters.has_next %}?page={{ disasters.next_page_number }}{% else %}#{% endif %}">Next page</a>
+                    </li>
+                    <li class="page-item {% if not disasters.has_next %}disabled{% endif %}">
+                        <a class="page-link" href="?page={{ disasters.paginator.num_pages }}" tabindex="-1" aria-disabled="true">Last page</a>
                     </li>
                 </ul>
             </nav>
