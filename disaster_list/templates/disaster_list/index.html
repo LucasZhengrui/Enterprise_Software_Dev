@@ -1,83 +1,92 @@
  {% include 'common/header.html' %} {% include 'common/nav.html' %}
+<div class="main-content">
 
-<div class="container my-3">
-    <div class="col-12 col-md-6">
-        <form>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <select class="form-select">
-                            <option selected>所有</option>
-                            <option value="1">选项1</option>
-                            <option value="2">选项2</option>
-                            <option value="3">选项3</option>
-                        </select>
-                </div>
-                <input type="text" class="form-control flex-grow-1" placeholder="搜索...">
-                <button class="btn btn-outline-secondary" type="submit">搜索</button>
-            </div>
-        </form>
+
+    <div class="alert alert-warning mt-3" role="alert">
+        This is a system message for you. Please pay attention to it!
     </div>
-    <br>
-    <div class="row">
-        <div class="col">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Year</th>
-                        <th scope="col">Disaster Group</th>
-                        <th scope="col">Disaster Type</th>
-                        <th scope="col">Country</th>
-                        <th scope="col">ISO</th>
-                        <th scope="col">Total Affected</th>
-                        <th scope="col">Total Damages (USD)</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for disaster in disasters %}
-                    <tr>
-                        <th scope="row">{{ disaster.dis_id }}</th>
-                        <td>{{ disaster.year }}</td>
-                        <td>{{ disaster.disaster_group }}</td>
-                        <td>{{ disaster.disaster_type }}</td>
-                        <td>{{ disaster.country }}</td>
-                        <td>{{ disaster.iso }}</td>
-                        <td>{{ disaster.total_affected }}</td>
-                        <td>{{ disaster.total_damages_usd }}</td>
-                        <td>
-                            <a href="/edit/{{ disaster.dis_id }}" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="/list" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="row my-3">
+
+    <div class="container my-3">
         <div class="col-12 col-md-6">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-end">
-                    <li class="page-item {% if not disasters.has_previous %}disabled{% endif %}">
-                        <a class="page-link" href="?page=1" tabindex="-1" aria-disabled="true">Home</a>
-                    </li>
-                    <li class="page-item {% if not disasters.has_previous %}disabled{% endif %}">
-                        <a class="page-link" href="{% if disasters.has_previous %}?page={{ disasters.previous_page_number }}{% else %}#{% endif %}" tabindex="-1" aria-disabled="true">Previous page</a>
-                    </li>
-                    {% for i in disasters.paginator.page_range %} {% if disasters.number == i %}
-                    <li class="page-item active" aria-current="page"><a class="page-link" href="?page={{ i }}">{{ i }} <span class="visually-hidden">(current)</span></a></li>
-                    {% else %}
-                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-                    {% endif %} {% endfor %}
-                    <li class="page-item {% if not disasters.has_next %}disabled{% endif %}">
-                        <a class="page-link" href="{% if disasters.has_next %}?page={{ disasters.next_page_number }}{% else %}#{% endif %}">Next page</a>
-                    </li>
-                    <li class="page-item {% if not disasters.has_next %}disabled{% endif %}">
-                        <a class="page-link" href="?page={{ disasters.paginator.num_pages }}" tabindex="-1" aria-disabled="true">Last page</a>
-                    </li>
-                </ul>
-            </nav>
+            <form method="get" action="{% url 'search' %}">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <select class="form-select" name="search_field">
+                        <option value="all">please select</option>
+                        <option value="year">Year</option>
+                        <option value="disaster_group">Disaster Group</option>
+                        <option value="country">Country</option>
+                    </select>
+                    </div>
+                    <input type="text" class="form-control flex-grow-1" name="search_query" placeholder="Search...">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+            </form>
         </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Year</th>
+                            <th scope="col">Disaster Group</th>
+                            <th scope="col">Disaster Type</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">ISO</th>
+                            <th scope="col">Total Affected</th>
+                            <th scope="col">Total Damages (USD)</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for disaster in disasters %}
+                        <tr>
+                            <th scope="row">{{ disaster.dis_id }}</th>
+                            <td>{{ disaster.year }}</td>
+                            <td>{{ disaster.disaster_group }}</td>
+                            <td>{{ disaster.disaster_type }}</td>
+                            <td>{{ disaster.country }}</td>
+                            <td>{{ disaster.iso }}</td>
+                            <td>{{ disaster.total_affected }}</td>
+                            <td>{{ disaster.total_damages_usd }}</td>
+                            <td>
+                                <a href="/edit/{{ disaster.dis_id }}" class="btn btn-primary btn-sm">Edit</a>
+                                <a href="/list/delete/{{ disaster.dis_id }}" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-12 col-md-6">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                        <li class="page-item {% if not disasters.has_previous %}disabled{% endif %}">
+                            <a class="page-link" href="{% if search_query and search_field %}?search_query={{ search_query }}&search_field={{ search_field }}&page=1{% else %}?page=1{% endif %}" tabindex="-1" aria-disabled="true">Home</a>
+                        </li>
+                        <li class="page-item {% if not disasters.has_previous %}disabled{% endif %}">
+                            <a class="page-link" href="{% if disasters.has_previous %}?{% if search_query and search_field %}search_query={{ search_query }}&search_field={{ search_field }}&{% endif %}page={{ disasters.previous_page_number }}{% else %}#{% endif %}" tabindex="-1"
+                                aria-disabled="true">Previous page</a>
+                        </li>
+                        {% for i in disasters.paginator.page_range %} {% if disasters.number == i %}
+                        <li class="page-item active" aria-current="page"><a class="page-link" href="?{% if search_query and search_field %}search_query={{ search_query }}&search_field={{ search_field }}&{% endif %}page={{ i }}">{{ i }} <span class="visually-hidden">(current)</span></a></li>
+                        {% else %}
+                        <li class="page-item"><a class="page-link" href="?{% if search_query and search_field %}search_query={{ search_query }}&search_field={{ search_field }}&{% endif %}page={{ i }}">{{ i }}</a></li>
+                        {% endif %} {% endfor %}
+                        <li class="page-item {% if not disasters.has_next %}disabled{% endif %}">
+                            <a class="page-link" href="{% if disasters.has_next %}?{% if search_query and search_field %}search_query={{ search_query }}&search_field={{ search_field }}&{% endif %}page={{ disasters.next_page_number }}{% else %}#{% endif %}">Next page</a>
+                        </li>
+                        <li class="page-item {% if not disasters.has_next %}disabled{% endif %}">
+                            <a class="page-link" href="{% if search_query and search_field %}?search_query={{ search_query }}&search_field={{ search_field }}&page={{ disasters.paginator.num_pages }}{% else %}?page={{ disasters.paginator.num_pages }}{% endif %}" tabindex="-1" aria-disabled="true">Last page</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
     </div>
 </div>

@@ -9,9 +9,11 @@ class DisasterList(models.Model):
     iso = models.CharField(max_length=3)
     total_affected = models.IntegerField()
     total_damages_usd = models.FloatField()
+    is_delete = models.IntegerField()
 
     class Meta:
         db_table = 'disaster_list'
 
     def __str__(self):
         return f"{self.disaster_type} - {self.country} - {self.year}"
+    
