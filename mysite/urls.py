@@ -25,4 +25,5 @@ urlpatterns = [
     path('chat/', include('disaster_chat.urls')),
     path('dashboard/', include('disaster_dashboard.urls')),
     path('edit/<int:dis_id>/', include('disaster_edit.urls')),
+    # path('edit/', include('disaster_edit.urls')),
 ]
