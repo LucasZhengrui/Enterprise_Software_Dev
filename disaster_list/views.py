@@ -40,7 +40,7 @@ def index(request):
                                                          'search_field': search_field, 'page_range': page_range})
 
 def delete(request, dis_id):
-    disaster = DisasterList.objects.get(dis_id=dis_id)
+    disaster = DisasterList.objects.get(Dis_ID=dis_id)
     disaster.is_delete = 1
     disaster.save()
     return index(request)

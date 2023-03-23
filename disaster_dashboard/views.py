@@ -78,6 +78,7 @@ def create_disaster_line_chart():
     # Count disasters by year using Django ORM
     counts = (
         DisasterList.objects
+        .filter(Year__lt=2000)
         .values('Year')
         .annotate(disaster_count=models.Count('Dis_ID'))
     )
