@@ -136,7 +136,7 @@ def index(request):
     map_chart_html = create_disaster_map()
 
     # Count the number of records in the database
-    num_disasters = DisasterList.objects.count()
+    num_disasters = DisasterList.objects.filter(is_delete=0).count()
 
     # Count the number of unique years in the database
     num_years = DisasterList.objects.order_by().values('Year').distinct().count()
