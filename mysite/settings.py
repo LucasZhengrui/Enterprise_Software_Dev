@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'disaster_dashboard.apps.DisasterDashboardConfig',
     'disaster_edit.apps.DisasterEditConfig',
     'disaster_trash_list.apps.DisasterTrashListConfig',
+    'disaster_table',
 ]
 
 MIDDLEWARE = [

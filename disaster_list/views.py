@@ -1,9 +1,9 @@
 from django.shortcuts import redirect, render
-from .models import DisasterList
+from .models import summary as DisasterList
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def get_disasters():
-    disasters = DisasterList.objects.filter(is_delete=0).order_by('dis_id')
+    disasters = DisasterList.objects.filter(is_delete=0).order_by('Dis_ID')
     return disasters
 
 def index(request):
@@ -31,7 +31,11 @@ def index(request):
         # If page is not an integer or out of range, deliver first page.
         disasters = paginator.page(1)
 
-    return render(request, 'disaster_list/index.html', {'disasters': disasters,'search_query':search_query,'search_field':search_field})
+    # Limit the page range to 3 pages
+    page_range = paginator.get_elided_page_range(page, on_each_side=0, on_ends=1)
+
+    return render(request, 'disaster_list/index.html', {'disasters': disasters, 'search_query': search_query,
+                                                         'search_field': search_field, 'page_range': page_range})
 
 def delete(request, dis_id):
     disaster = DisasterList.objects.get(dis_id=dis_id)

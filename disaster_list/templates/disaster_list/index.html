@@ -13,9 +13,9 @@
                     <div class="input-group-prepend">
                         <select class="form-select" name="search_field">
                         <option value="all">please select</option>
-                        <option value="year">Year</option>
-                        <option value="disaster_group">Disaster Group</option>
-                        <option value="country">Country</option>
+                        <option value="Year">Year</option>
+                        <option value="Disaster_Group">Disaster Group</option>
+                        <option value="Country">Country</option>
                     </select>
                     </div>
                     <input type="text" class="form-control flex-grow-1" name="search_query" placeholder="Search...">
@@ -43,17 +43,17 @@
                     <tbody>
                         {% for disaster in disasters %}
                         <tr>
-                            <th scope="row">{{ disaster.dis_id }}</th>
-                            <td>{{ disaster.year }}</td>
-                            <td>{{ disaster.disaster_group }}</td>
-                            <td>{{ disaster.disaster_type }}</td>
-                            <td>{{ disaster.country }}</td>
-                            <td>{{ disaster.iso }}</td>
-                            <td>{{ disaster.total_affected }}</td>
-                            <td>{{ disaster.total_damages_usd }}</td>
+                            <th scope="row">{{ disaster.Dis_ID }}</th>
+                            <td>{{ disaster.Year }}</td>
+                            <td>{{ disaster.Disaster_Group }}</td>
+                            <td>{{ disaster.Disaster_Type }}</td>
+                            <td>{{ disaster.Country }}</td>
+                            <td>{{ disaster.ISO }}</td>
+                            <td>{{ disaster.Total_Affected }}</td>
+                            <td>{{ disaster.Total_Damages }}</td>
                             <td>
-                                <a href="/edit/{{ disaster.dis_id }}" class="btn btn-primary btn-sm">Edit</a>
-                                <a href="/list/delete/{{ disaster.dis_id }}" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="/edit/{{ disaster.Dis_ID }}" class="btn btn-primary btn-sm">Edit</a>
+                                <a href="/list/delete/{{ disaster.Dis_ID }}" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
                         {% endfor %}
@@ -61,32 +61,39 @@
                 </table>
             </div>
         </div>
+        
         <div class="row my-3">
             <div class="col-12 col-md-6">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-end">
                         <li class="page-item {% if not disasters.has_previous %}disabled{% endif %}">
-                            <a class="page-link" href="{% if search_query and search_field %}?search_query={{ search_query }}&search_field={{ search_field }}&page=1{% else %}?page=1{% endif %}" tabindex="-1" aria-disabled="true">Home</a>
+                            <a class="page-link" href="{% if search_query and search_field %}?search_query={{ search_query }}&search_field={{ search_field }}&page=1{% else %}?page=1{% endif %}" tabindex="-1" aria-disabled="true">First</a>
                         </li>
                         <li class="page-item {% if not disasters.has_previous %}disabled{% endif %}">
-                            <a class="page-link" href="{% if disasters.has_previous %}?{% if search_query and search_field %}search_query={{ search_query }}&search_field={{ search_field }}&{% endif %}page={{ disasters.previous_page_number }}{% else %}#{% endif %}" tabindex="-1"
-                                aria-disabled="true">Previous page</a>
+                            <a class="page-link" href="{% if disasters.has_previous %}?{% if search_query and search_field %}search_query={{ search_query }}&search_field={{ search_field }}&{% endif %}page={{ disasters.previous_page_number }}{% else %}#{% endif %}" tabindex="-1" aria-disabled="true">Previous</a>
                         </li>
-                        {% for i in disasters.paginator.page_range %} {% if disasters.number == i %}
-                        <li class="page-item active" aria-current="page"><a class="page-link" href="?{% if search_query and search_field %}search_query={{ search_query }}&search_field={{ search_field }}&{% endif %}page={{ i }}">{{ i }} <span class="visually-hidden">(current)</span></a></li>
+                        {% for i in page_range %}
+                        {% if disasters.number == i %}
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="?{% if search_query and search_field %}search_query={{ search_query }}&search_field={{ search_field }}&{% endif %}page={{ i }}">{{ i }}</a>
+                        </li>
                         {% else %}
-                        <li class="page-item"><a class="page-link" href="?{% if search_query and search_field %}search_query={{ search_query }}&search_field={{ search_field }}&{% endif %}page={{ i }}">{{ i }}</a></li>
-                        {% endif %} {% endfor %}
+                        <li class="page-item">
+                            <a class="page-link" href="?{% if search_query and search_field %}search_query={{ search_query }}&search_field={{ search_field }}&{% endif %}page={{ i }}">{{ i }}</a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
                         <li class="page-item {% if not disasters.has_next %}disabled{% endif %}">
-                            <a class="page-link" href="{% if disasters.has_next %}?{% if search_query and search_field %}search_query={{ search_query }}&search_field={{ search_field }}&{% endif %}page={{ disasters.next_page_number }}{% else %}#{% endif %}">Next page</a>
+                            <a class="page-link" href="{% if disasters.has_next %}?{% if search_query and search_field %}search_query={{ search_query }}&search_field={{ search_field }}&{% endif %}page={{ disasters.next_page_number }}{% else %}#{% endif %}">Next</a>
                         </li>
                         <li class="page-item {% if not disasters.has_next %}disabled{% endif %}">
-                            <a class="page-link" href="{% if search_query and search_field %}?search_query={{ search_query }}&search_field={{ search_field }}&page={{ disasters.paginator.num_pages }}{% else %}?page={{ disasters.paginator.num_pages }}{% endif %}" tabindex="-1" aria-disabled="true">Last page</a>
+                            <a class="page-link" href="{% if search_query and search_field %}?search_query={{ search_query }}&search_field={{ search_field }}&page={{ disasters.paginator.num_pages }}{% else %}?page={{ disasters.paginator.num_pages }}{% endif %}" tabindex="-1" aria-disabled="true">Last</a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
+        
 
     </div>
 </div>
