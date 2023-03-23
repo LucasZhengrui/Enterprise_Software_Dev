@@ -7,22 +7,29 @@
     </div>
 
     <div class="container my-3">
-        <div class="col-12 col-md-6">
-            <form method="get" action="{% url 'search' %}">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <select class="form-select" name="search_field">
-                        <option value="all">please select</option>
-                        <option value="Year">Year</option>
-                        <option value="Disaster_Group">Disaster Group</option>
-                        <option value="Country">Country</option>
-                    </select>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <form method="get" action="{% url 'search' %}">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <select class="form-select" name="search_field">
+                                <option value="all">please select</option>
+                                <option value="Year">Year</option>
+                                <option value="Disaster_Group">Disaster Group</option>
+                                <option value="Country">Country</option>
+                            </select>
+                        </div>
+                        <input type="text" class="form-control flex-grow-1" name="search_query" placeholder="Search...">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        </div>
                     </div>
-                    <input type="text" class="form-control flex-grow-1" name="search_query" placeholder="Search...">
-                    <button class="btn btn-outline-secondary" type="submit">Search</button>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+            <div class="col-12 col-md-6 text-end">
+                <a href="/download/{{ disasters.number }}/{{ search_field }}/{{ search_query }}/" class="btn btn-success btn-sm">csv-download</a>
+            </div>
+        </div> 
         <br>
         <div class="row">
             <div class="col">
