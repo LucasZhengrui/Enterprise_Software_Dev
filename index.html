@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Table Page Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f8fa;
+        }
+        
+        .navbar {
+            background-color: #fff;
+        }
+        
+        .table td,
+        .table th {
+            border-top: none;
+        }
+        
+        tbody tr {
+            border-left: 4px solid #1da1f2;
+        }
+        
+        .page-item.active .page-link {
+            background-color: #1da1f2;
+            border-color: #1da1f2;
+        }
+        
+        .page-link {
+            color: #1da1f2;
+        }
+        
+        .page-link:hover {
+            color: #1da1f2;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Table Page Example</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container my-4">
+        <h1 class="text-center mb-4">Table Page Example</h1>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th id="desc" class="header">Country</th>
+                        <th id="desc" class="header">Sector</th>
+                        <th id="desc" class="header">Gas</th>
+                        <th class="header">2010 - 2017</th>
+                        <th class="header">2000 - 2009</th>
+                        <th class="header">1990 - 1999</th>
+                        <th class="header">1980 - 1989</th>
+                        <th class="header">1970 - 1979</th>
+                        <th class="header">1960 - 1969</th>
+                        <th class="header">1950 - 1959</th>
+                        <th class="header">1940 - 1949</th>
+                        <th class="header">1930 - 1939</th>
+                        <th class="header">1920 - 1929</th>
+                        <th class="header">1910 - 1919</th>
+                        <th class="header">1900 - 1909</th>
+                        <th class="header">1890 - 1899</th>
+                        <th class="header">1880 - 1889</th>
+                        <th class="header">1870 - 1879</th>
+                        <th class="header">1860 - 1869</th>
+                        <th class="header">1850 - 1859</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>United States</td>
+                        <td>Energy</td>
+                        <td>Natural Gas</td>
+                        <td>2500</td>
+                        <td>3000</td>
+                        <td>3500</td>
+                        <td>4000</td>
+                        <td>4500</td>
+                        <td>5000</td>
+                        <td>5500</td>
+                        <td>6000</td>
+                        <td>6500</td>
+                        <td>7000</td>
+                        <td>7500</td>
+                        <td>8000</td>
+                        <td>8500</td>
+                        <td>9000</td>
+                        <td>9500</td>
+                        <td>10000</td>
+                        <td>10500</td>
+                    </tr>
+                    <tr>
+                        <td>Canada</td>
+                        <td>Transportation</td>
+                        <td>Gasoline</td>
+                        <td>1500</td>
+                        <td>2000</td>
+                        <td>2500</td>
+                        <td>3000</td>
+                        <td>3500</td>
+                        <td>4000</td>
+                        <td>4500</td>
+                        <td>5000</td>
+                        <td>5500</td>
+                        <td>6000</td>
+                        <td>6500</td>
+                        <td>7000</td>
+                        <td>7500</td>
+                        <td>8000</td>
+                        <td>8500</td>
+                        <td>9000</td>
+                        <td>9500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>

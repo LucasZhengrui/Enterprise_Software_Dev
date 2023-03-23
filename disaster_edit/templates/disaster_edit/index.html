@@ -1,39 +1,44 @@
 {% include 'common/header.html' %} {% include 'common/nav.html' %}
-<div class="container mt-5">
-    <h1>编辑Disaster记录</h1>
-    <hr>
-    <form action="" method="POST">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="dis_no" class="form-label">Dis No</label>
-                    <input type="text" class="form-control" id="dis_no" name="dis_no" value="{{ dis_no }}">
+<div class="main-content">
+    <div class="alert alert-warning mt-3" role="alert">
+        This is a system message for you. Please pay attention to it!
+    </div>
+    <div class="container mt-5">
+        <h1>编辑Disaster记录</h1>
+        <hr>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="dis_no" class="form-label">Dis No</label>
+                        <input type="text" class="form-control" id="dis_no" name="dis_no" value="{{ dis_no }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="year" class="form-label">Year</label>
+                        <input type="text" class="form-control" id="year" name="year" value="{{ year }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="seq" class="form-label">Seq</label>
+                        <input type="text" class="form-control" id="seq" name="seq" value="{{ seq }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="glide" class="form-label">Glide</label>
+                        <input type="text" class="form-control" id="glide" name="glide" value="{{ glide }}">
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="year" class="form-label">Year</label>
-                    <input type="text" class="form-control" id="year" name="year" value="{{ year }}">
-                </div>
-                <div class="mb-3">
-                    <label for="seq" class="form-label">Seq</label>
-                    <input type="text" class="form-control" id="seq" name="seq" value="{{ seq }}">
-                </div>
-                <div class="mb-3">
-                    <label for="glide" class="form-label">Glide</label>
-                    <input type="text" class="form-control" id="glide" name="glide" value="{{ glide }}">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="disaster_group" class="form-label">Disaster Group</label>
+                        <input type="text" class="form-control" id="disaster_group" name="disaster_group" value="{{ disaster_group }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="disaster_subgroup" class="form-label">Disaster Subgroup</label>
+                        <input type="text" class="form-control" id="disaster_subgroup" name="disaster_subgroup" value="{{ disaster_subgroup }}">
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="disaster_group" class="form-label">Disaster Group</label>
-                    <input type="text" class="form-control" id="disaster_group" name="disaster_group" value="{{ disaster_group }}">
-                </div>
-                <div class="mb-3">
-                    <label for="disaster_subgroup" class="form-label">Disaster Subgroup</label>
-                    <input type="text" class="form-control" id="disaster_subgroup" name="disaster_subgroup" value="{{ disaster_subgroup }}">
-                </div>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">保存</button>
-    </form>
+            <button type="submit" class="btn btn-primary">保存</button>
+        </form>
+    </div>
 </div>

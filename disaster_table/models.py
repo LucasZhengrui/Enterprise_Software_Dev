@@ -11,9 +11,10 @@ class summary(models.Model):
     ISO = models.TextField()
     Total_Affected = models.TextField()
     Total_Damages = models.TextField()
+    is_delete = models.IntegerField()
 
     def __str__(self):
-        return self.Dis_ID, self.Year, self.Disaster_Group, self.Disaster_Type, self.Country,self.ISO, self.Total_Affected, self.Total_Damages
+        return self.Dis_ID, self.Year, self.Disaster_Group, self.Disaster_Type, self.Country,self.ISO, self.Total_Affected, self.Total_Damages,self.is_delete
 class details(models.Model):
     Dis_ID = models.ForeignKey('disaster_table.summary', on_delete=models.CASCADE, related_name='details')
     Seq = models.IntegerField(default=None)
