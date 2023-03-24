@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 
 
 def get_message_obj(request):
-    message_obj = Message.objects.order_by('-id')
+    message_obj = Message.objects.order_by('-id')[:10]
     return message_obj
 
 def index(request):
