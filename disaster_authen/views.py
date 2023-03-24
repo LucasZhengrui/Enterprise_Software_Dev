@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
+from django.core.paginator import Paginator
 from .models import DisasterUser
 import hashlib
 from django.http import HttpResponseRedirect
@@ -54,3 +55,13 @@ def login(request):
          response = render(request, 'disaster_authen/login.html')
          response.delete_cookie('username')
          return response
+
+
+def user_list(request):
+
+    user_info = DisasterUser.objects.all()
+    paginator = Paginator(user_info, 10)
+    page = request.GET.get('page')
+    users = paginator.get_page(page)
+
+    return render(request, 'disaster_authen/userlist.html', {'users': users})
