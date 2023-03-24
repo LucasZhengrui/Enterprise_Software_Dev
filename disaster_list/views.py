@@ -3,6 +3,12 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .models import summary as DisasterList
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .models import Message
+
+
+def get_message_obj():
+    message_obj = Message.objects.order_by('-id')
+    return message_obj
 
 def get_disasters():
     disasters = DisasterList.objects.filter(is_delete=0).order_by('Dis_ID')
@@ -36,11 +42,13 @@ def index(request):
     # Limit the page range to 3 pages
     page_range = paginator.get_elided_page_range(page, on_each_side=0, on_ends=1)
 
+    message_obj = get_message_obj()
+
     return render(request, 'disaster_list/index.html', {'disasters': disasters, 'search_query': search_query,
-                                                         'search_field': search_field, 'page_range': page_range})
+                                                         'search_field': search_field, 'page_range': page_range, 'message_obj':message_obj})
 
 def delete(request, dis_id):
-    disaster = DisasterList.objects.get(dis_id=dis_id)
+    disaster = DisasterList.objects.get(Dis_ID=dis_id)
     disaster.is_delete = 1
     disaster.save()
     return index(request)

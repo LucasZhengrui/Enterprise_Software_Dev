@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 # Create your models here.
 class summary(models.Model):
     Dis_ID = models.IntegerField()
@@ -15,6 +16,10 @@ class summary(models.Model):
 
     def __str__(self):
         return self.Dis_ID, self.Year, self.Disaster_Group, self.Disaster_Type, self.Country,self.ISO, self.Total_Affected, self.Total_Damages,self.is_delete
+    
+    def get_absolute_url(self):
+        return reverse('details_edit', {'pk': self.pk})
+    
 class details(models.Model):
     Dis_ID = models.ForeignKey('disaster_table.summary', on_delete=models.CASCADE, related_name='details')
     Seq = models.IntegerField(default=None)
@@ -45,3 +50,6 @@ class details(models.Model):
                f' {self.Location}, {self.OFDA_Response},' \
                f' {self.Appeal}, {self.Declaration}, {self.Local_Time}, {self.Start_Year}, {self.Start_Month},{self.Start_Day},' \
                f'{self.End_Year},{self.End_Month},{self.End_Day},{self.Total_Deaths},{self.CPI},{self.Total_Damages_usd},'
+    
+    def get_absolute_url(self):
+        return reverse('details_edit', {'pk': self.pk})

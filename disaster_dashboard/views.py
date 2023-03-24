@@ -2,6 +2,12 @@ from django.shortcuts import render
 import plotly.graph_objs as go
 from .models import DisasterList
 from django.db import models
+from .models import Message
+
+
+def get_message_obj():
+    message_obj = Message.objects.order_by('-id')
+    return message_obj
 
 def create_top_10_affected_countries():
     # Get top 10 countries by total affected
@@ -78,6 +84,7 @@ def create_disaster_line_chart():
     # Count disasters by year using Django ORM
     counts = (
         DisasterList.objects
+        .filter(Year__lt=2000)
         .values('Year')
         .annotate(disaster_count=models.Count('Dis_ID'))
     )
@@ -135,7 +142,7 @@ def index(request):
     map_chart_html = create_disaster_map()
 
     # Count the number of records in the database
-    num_disasters = DisasterList.objects.count()
+    num_disasters = DisasterList.objects.filter(is_delete=0).count()
 
     # Count the number of unique years in the database
     num_years = DisasterList.objects.order_by().values('Year').distinct().count()
@@ -150,8 +157,11 @@ def index(request):
     top_10_affected_table = create_top_10_affected_countries()
     top_10_damaged_table = create_top_10_damaged_countries()
 
+    message_obj = get_message_obj()
+
     # Render the template with the data
     return render(request, 'disaster_dashboard/index.html', {
+        'message_obj': message_obj,
         'pie_chart_html': pie_chart_html,
         'line_chart_html': line_chart_html,
         'map_chart_html': map_chart_html,
