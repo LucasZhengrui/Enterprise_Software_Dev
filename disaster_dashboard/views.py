@@ -2,6 +2,12 @@ from django.shortcuts import render
 import plotly.graph_objs as go
 from .models import DisasterList
 from django.db import models
+from .models import Message
+
+
+def get_message_obj():
+    message_obj = Message.objects.order_by('-id')
+    return message_obj
 
 def create_top_10_affected_countries():
     # Get top 10 countries by total affected
@@ -151,8 +157,11 @@ def index(request):
     top_10_affected_table = create_top_10_affected_countries()
     top_10_damaged_table = create_top_10_damaged_countries()
 
+    message_obj = get_message_obj()
+
     # Render the template with the data
     return render(request, 'disaster_dashboard/index.html', {
+        'message_obj': message_obj,
         'pie_chart_html': pie_chart_html,
         'line_chart_html': line_chart_html,
         'map_chart_html': map_chart_html,
