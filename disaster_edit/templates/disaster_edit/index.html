@@ -1,130 +1,177 @@
-{% include 'common/header.html' %} {% include 'common/nav.html' %}
+{% include 'common/header.html' %}
+{% include 'common/nav.html' %}
+<head>
+    <style>
+        .white-background {
+            background-color: white;
+        }
+    </style>
+</head>
 <div class="main-content">
     <div class="alert alert-warning mt-3" role="alert">
-        This is a system message for you. Please pay attention to it!
+        {{message_obj.0.message}}
     </div>
-    <!-- <div class="container mt-5">
-        <h1>编辑Disaster记录</h1>
-        <hr>
-        <form action="" method="POST">
-            {% csrf_token %}
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="dis_no" class="form-label">Dis No</label>
-                        <input type="text" class="form-control" id="dis_no" name="dis_no" value="{{ dis_no }}">
-                    </div>
-                    <div class="mb-3">
-                        <label for="year" class="form-label">Year</label>
-                        <input type="text" class="form-control" id="year" name="year" value="{{ year }}">
-                    </div>
-                    <div class="mb-3">
-                        <label for="seq" class="form-label">Seq</label>
-                        <input type="text" class="form-control" id="seq" name="seq" value="{{ seq }}">
-                    </div>
-                    <div class="mb-3">
-                        <label for="glide" class="form-label">Glide</label>
-                        <input type="text" class="form-control" id="glide" name="glide" value="{{ glide }}">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="disaster_group" class="form-label">Disaster Group</label>
-                        <input type="text" class="form-control" id="disaster_group" name="disaster_group" value="{{ disaster_group }}">
-                    </div>
-                    <div class="mb-3">
-                        <label for="disaster_subgroup" class="form-label">Disaster Subgroup</label>
-                        <input type="text" class="form-control" id="disaster_subgroup" name="disaster_subgroup" value="{{ disaster_subgroup }}">
+    <div class="container">
+        <div class="row">
+            {% for item in list %}
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body text-center text-white" style="background-color:#402353;">
+                        <h3>ID:{{ item.1 }}</h3>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">保存</button>
-        </form>
-    </div> -->
-    <div class="row">
-        <div class="col">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Real Disaster ID</th>
-                        <th scope="col">ID</th>
-                        <th scope="col">Year</th>
-                        <th scope="col">Disaster Group</th>
-                        <th scope="col">Disaster Type</th>
-                        <th scope="col">Country</th>
-                        <th scope="col">ISO</th>
-                        <th scope="col">Total Affected</th>
-                        <th scope="col">Total Damages</th>
-                        <!-- <th scope="col">Status(1: Deleted 0: Non-Deleted)</th> -->
-                        <!-- <th scope="col">ID</th> -->
-                        <th scope="col">Sequence Number</th>
-                        <th scope="col">Disaster SubGroup</th>
-                        <th scope="col">Disaster SubType</th>
-                        <th scope="col">Region</th>
-                        <th scope="col">Continent</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">OFDA Response</th>
-                        <th scope="col">Appeal</th>
-                        <th scope="col">Declaration</th>
-                        <th scope="col">Local Time</th>
-                        <th scope="col">Start Year</th>
-                        <th scope="col">Start Month</th>
-                        <th scope="col">Start Day</th>
-                        <th scope="col">End Year</th>
-                        <th scope="col">End Month</th>
-                        <th scope="col">End Day</th>
-                        <th scope="col">Death Number</th>
-                        <th scope="col">Insured Damages (USD)</th>
-                        <!-- <th scope="col">Total Damages (USD)</th> -->
-                        <!-- <th scope="col">Real Disaster ID</th> -->
-                        <th scope="col">Disaster SubSubType</th>
-                        <th scope="col">CPI</th>   
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in list %}
-                    <tr>
-                        <th scope="row">{{ item.0 }}</th>
-                        <td>{{ item.1 }}</td>
-                        <td>{{ item.2 }}</td>
-                        <td>{{ item.3 }}</td>
-                        <td>{{ item.4 }}</td>
-                        <td>{{ item.5 }}</td>
-                        <td>{{ item.6 }}</td>
-                        <td>{{ item.7 }}</td>
-                        <td>{{ item.8 }}</td>
-                        <!-- <td>{{ item.9 }}</td> -->
-                        <!-- <td>{{ item.10 }}</td> -->
-                        <td>{{ item.11 }}</td>
-                        <td>{{ item.12 }}</td>
-                        <td>{{ item.13 }}</td>
-                        <td>{{ item.14 }}</td>
-                        <td>{{ item.15 }}</td>
-                        <td>{{ item.16 }}</td>
-                        <td>{{ item.17 }}</td>
-                        <td>{{ item.18 }}</td>
-                        <td>{{ item.19 }}</td>
-                        <td>{{ item.20 }}</td>
-                        <td>{{ item.21 }}</td>
-                        <td>{{ item.22 }}</td>
-                        <td>{{ item.23 }}</td>
-                        <td>{{ item.24 }}</td>
-                        <td>{{ item.25 }}</td>
-                        <td>{{ item.26 }}</td>
-                        <td>{{ item.27 }}</td>
-                        <td>{{ item.28 }}</td>
-                        <!-- <td>{{ item.29 }}</td>
-                        <td>{{ item.30 }}</td> -->
-                        <td>{{ item.31 }}</td>
-                        <td>{{ item.32 }}</td>
-                        <!-- <td>
-                            <a href="/edit/{{ disaster.Dis_ID }}" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="/list/delete/{{ disaster.Dis_ID }}" class="btn btn-danger btn-sm">Delete</a>
-                        </td> -->
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body text-center text-white" style="background-color:#3b4b22;">
+                        <h3>Disaster ID:{{ item.0 }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body text-center text-white" style="background-color:#6b2f46;">
+                        <h3>Year:{{ item.2 }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body text-center text-white" style="background-color:#2d6342;">
+                        <h3>Country:{{ item.5 }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <table class="table table-bordered white-background">
+                    <tbody>
+                        <tr>
+                            <td><strong>Insured Damages (USD):</strong> {{ item.28 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Disaster SubSubType:</strong> {{ item.31 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CPI:</strong> {{ item.32 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Disaster Group:</strong> {{ item.3 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Disaster Type:</strong> {{ item.4 }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-bordered white-background">
+                    <tbody>
+                        <tr>
+                            <td><strong>ISO:</strong> {{ item.6 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Affected:</strong> {{ item.7 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Damages:</strong> {{ item.8 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sequence Number:</strong> {{ item.11 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Disaster SubGroup:</strong> {{ item.12 }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-bordered white-background">
+                    <tbody>
+                        <tr>
+                            <td><strong>Disaster SubType:</strong> {{ item.13 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Region:</strong> {{ item.14 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Continent:</strong> {{ item.15 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Location:</strong> {{ item.16 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>OFDA Response:</strong> {{ item.17 }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-bordered white-background">
+                    <tbody>
+                        <tr>
+                            <td><strong>Appeal:</strong> {{ item.18 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Declaration:</strong> {{ item.19 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Local Time:</strong> {{ item.20 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Start Year:</strong> {{ item.21 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Start Month:</strong> {{ item.22 }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-bordered white-background">
+                    <tbody>
+                        <tr>
+                            <td><strong>Start Day:</strong> {{ item.23 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>End Year:</strong> {{ item.24 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>End Month:</strong> {{ item.25 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>End Day:</strong> {{ item.26 }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Death Number:</strong> {{ item.27 }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-9">
+                <table class="table table-bordered white-background">
+                    <tbody>
+                        <tr>
+                            <td>
+                                This is a description of the disaster event with ID {{ item.1 }}:
+                                This natural disaster took place in {{ item.2 }} in the country of {{ item.5 }} ({{ item.6 }}), located in the {{ item.14 }} region of the {{ item.15 }} continent. The disaster belongs to the {{ item.12 }} category, specifically {{ item.13 }}. It began on {{ item.21 }}-{{ item.22 }}-{{ item.23 }} and lasted until {{ item.24 }}-{{ item.25 }}-{{ item.26 }}. This {{ item.13 }} affected a total of {{ item.7 }} people nationwide and resulted in {{ item.27 }} deaths. The total damages amounted to {{ item.8 }} USD, but no insured damages were paid out. The event's sequence number is {{ item.11 }} and belongs to the {{ item.3 }} group.
+                                This {{ item.13 }} did not trigger a response from OFDA (US Office of Foreign Disaster Assistance), nor was there an appeal for assistance or a declaration of a state of emergency. The local time was {{ item.20 }}.
+                                The ISO code for {{ item.5 }} is {{ item.6 }}, and the Consumer Price Index (CPI) at the time was {{ item.32 }}. The specific sub-subtype of this disaster is {{ item.31 }}.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a href="/" class="btn btn-primary">Return to Home</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
