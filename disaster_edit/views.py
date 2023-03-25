@@ -1,20 +1,19 @@
 from django.shortcuts import render
-from django.views.generic import UpdateView
-from django.urls import reverse_lazy
-from .models import details
+from .models import summary as DisList
+import sqlite3
+from django.db import connection
 # Create your views here.
 # use f-strings for easy string formatting https://realpython.com/python-f-strings/ 
 
-def list():
-    list = ['Dis_id', 'Year', 'Disaster_Group', 'Disaster_Type', 'Country', 'ISO', 'Total_Affected', 'Total_Damages', 'is_delete']
-    return list
-
-def index(request):
-    myList = list()
+def index(request, show_id):
+    connection = sqlite3.connect('db.sqlite3')
+    cursor = connection.cursor()
+    cursor.execute('SELECT * FROM disaster_table_summary AS a LEFT JOIN disaster_table_details AS b ON a.id = b.Dis_ID_id WHERE a.Dis_ID = ?', (show_id,))
+    myList = cursor.fetchall()
+    print(myList) # Check how the data show
+    connection.close()
     return render(request, 'disaster_edit/index.html', {'list': myList})
 
-class SummaryUpdate(UpdateView):
-    model = details
-    fields = list
-    # template_name = 'disaster_edit/index.html'
-    success_url = reverse_lazy('index')
+# def get_myList():
+#     disasters = DisasterList.objects
+#     return disasters
