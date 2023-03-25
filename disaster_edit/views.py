@@ -10,7 +10,7 @@ def index(request, show_id):
     cursor = connection.cursor()
     cursor.execute('SELECT * FROM disaster_table_summary AS a LEFT JOIN disaster_table_details AS b ON a.id = b.Dis_ID_id WHERE a.Dis_ID = ?', (show_id,))
     myList = cursor.fetchall()
-    print(myList) # Check how the data show
+    # print(myList) # Check how the data show
     connection.close()
     return render(request, 'disaster_edit/index.html', {'list': myList})
 
