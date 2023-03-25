@@ -25,11 +25,11 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">History</h5>
+                        <h5 class="card-title">History (Only the last 10 data items are displayed)</h5>
                         <hr>
                         <div class="text-muted mb-3">
                             {% for message in message_obj %}
-                            <span>{{ message.message }}</span><br>
+                            <span>{{ message.message }}</span><br><hr>
                             {% endfor %}  
                         </div>
                         <div id="answer"></div>
