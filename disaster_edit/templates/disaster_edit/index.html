@@ -1,13 +1,13 @@
 {% include 'common/header.html' %} {% include 'common/nav.html' %}
-<!-- <div class="main-content">
+<div class="main-content">
     <div class="alert alert-warning mt-3" role="alert">
         This is a system message for you. Please pay attention to it!
     </div>
-    <div class="container mt-5">
+    <!-- <div class="container mt-5">
         <h1>编辑Disaster记录</h1>
         <hr>
         <form action="" method="POST">
-            {% csrf_token %}{{ form.as_p }}
+            {% csrf_token %}
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3">
@@ -40,19 +40,91 @@
             </div>
             <button type="submit" class="btn btn-primary">保存</button>
         </form>
+    </div> -->
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Real Disaster ID</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Disaster Group</th>
+                        <th scope="col">Disaster Type</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">ISO</th>
+                        <th scope="col">Total Affected</th>
+                        <th scope="col">Total Damages</th>
+                        <!-- <th scope="col">Status(1: Deleted 0: Non-Deleted)</th> -->
+                        <!-- <th scope="col">ID</th> -->
+                        <th scope="col">Sequence Number</th>
+                        <th scope="col">Disaster SubGroup</th>
+                        <th scope="col">Disaster SubType</th>
+                        <th scope="col">Region</th>
+                        <th scope="col">Continent</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">OFDA Response</th>
+                        <th scope="col">Appeal</th>
+                        <th scope="col">Declaration</th>
+                        <th scope="col">Local Time</th>
+                        <th scope="col">Start Year</th>
+                        <th scope="col">Start Month</th>
+                        <th scope="col">Start Day</th>
+                        <th scope="col">End Year</th>
+                        <th scope="col">End Month</th>
+                        <th scope="col">End Day</th>
+                        <th scope="col">Death Number</th>
+                        <th scope="col">Insured Damages (USD)</th>
+                        <!-- <th scope="col">Total Damages (USD)</th> -->
+                        <!-- <th scope="col">Real Disaster ID</th> -->
+                        <th scope="col">Disaster SubSubType</th>
+                        <th scope="col">CPI</th>   
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in list %}
+                    <tr>
+                        <th scope="row">{{ item.0 }}</th>
+                        <td>{{ item.1 }}</td>
+                        <td>{{ item.2 }}</td>
+                        <td>{{ item.3 }}</td>
+                        <td>{{ item.4 }}</td>
+                        <td>{{ item.5 }}</td>
+                        <td>{{ item.6 }}</td>
+                        <td>{{ item.7 }}</td>
+                        <td>{{ item.8 }}</td>
+                        <!-- <td>{{ item.9 }}</td> -->
+                        <!-- <td>{{ item.10 }}</td> -->
+                        <td>{{ item.11 }}</td>
+                        <td>{{ item.12 }}</td>
+                        <td>{{ item.13 }}</td>
+                        <td>{{ item.14 }}</td>
+                        <td>{{ item.15 }}</td>
+                        <td>{{ item.16 }}</td>
+                        <td>{{ item.17 }}</td>
+                        <td>{{ item.18 }}</td>
+                        <td>{{ item.19 }}</td>
+                        <td>{{ item.20 }}</td>
+                        <td>{{ item.21 }}</td>
+                        <td>{{ item.22 }}</td>
+                        <td>{{ item.23 }}</td>
+                        <td>{{ item.24 }}</td>
+                        <td>{{ item.25 }}</td>
+                        <td>{{ item.26 }}</td>
+                        <td>{{ item.27 }}</td>
+                        <td>{{ item.28 }}</td>
+                        <!-- <td>{{ item.29 }}</td>
+                        <td>{{ item.30 }}</td> -->
+                        <td>{{ item.31 }}</td>
+                        <td>{{ item.32 }}</td>
+                        <!-- <td>
+                            <a href="/edit/{{ disaster.Dis_ID }}" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="/list/delete/{{ disaster.Dis_ID }}" class="btn btn-danger btn-sm">Delete</a>
+                        </td> -->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-</div> -->
-
-{% include 'common/header.html' %} {% include 'common/nav.html' %}
-<div class="main-content">
-
-    <h1>
-        Hi
-    </h1>
-    <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit">
-    </form>
-
 </div>
-</body>
