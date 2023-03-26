@@ -118,14 +118,22 @@ def create_disaster_map():
         colorscale='Reds',
         colorbar_title='Disaster Count'
     )]
-    # Create Plotly figure object
-    fig = go.Figure(data=data, layout=go.Layout(
+
+    # Create Plotly layout object
+    layout = go.Layout(
         title=go.layout.Title(text='Disaster Map'),
         geo=go.layout.Geo(
             projection_type='natural earth',
             showcoastlines=True
-        )
-    ))
+        ),
+        width=1200,  # Set the width of the drawing board
+        height=400,  # Set the height of the drawing board
+        margin=dict(l=20, r=20, t=40, b=20)  # Set panel margins
+    )
+
+    # Create Plotly figure object
+    fig = go.Figure(data=data, layout=layout)
+
     # Get HTML code for Plotly figure
     map_chart_html = fig.to_html(full_html=False)
     return map_chart_html
