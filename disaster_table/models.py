@@ -12,11 +12,11 @@ class summary(models.Model):
     ISO = models.TextField()
     Total_Affected = models.TextField()
     Total_Damages = models.TextField()
-    is_delete = models.IntegerField()
-
-    def __str__(self):
-        return self.Dis_ID, self.Year, self.Disaster_Group, self.Disaster_Type, self.Country,self.ISO, self.Total_Affected, self.Total_Damages,self.is_delete
+    is_delete = models.IntegerField(default=0)
     
+    def __str__(self):
+        return f'{self.Dis_ID}, {self.Year}, {self.Disaster_Group}, {self.Disaster_Type}, {self.Country}, {self.ISO}, {self.Total_Affected}, {self.Total_Damages}, {self.is_delete}'
+
     def get_absolute_url(self):
         return reverse('details_edit', {'pk': self.pk})
     

@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from .models import summary as DisList
 import sqlite3
-from django.db import connection
 from .models import Message
 # Create your views here.
 # use f-strings for easy string formatting https://realpython.com/python-f-strings/ 

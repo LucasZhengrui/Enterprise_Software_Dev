@@ -71,10 +71,7 @@ def login(request):
 
 def user_list(request):
     message_obj = get_message_obj()
-    user_info = DisasterUser.objects.filter(is_delete=0)
-    paginator = Paginator(user_info, 10)
-    page = request.GET.get('page')
-    users = paginator.get_page(page)
+    users = DisasterUser.objects.filter(is_delete=0)
 
     return render(request, 'disaster_authen/userlist.html', {'users': users,'message_obj': message_obj})
 
