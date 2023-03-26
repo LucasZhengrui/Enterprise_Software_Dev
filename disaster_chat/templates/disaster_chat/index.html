@@ -1,10 +1,12 @@
-{% include 'common/header.html' %} {% include 'common/nav.html' %}
+{% include 'common/header.html' %} 
+{% include 'common/nav.html' %}
+
 <div class="main-content">
     <div class="alert alert-warning mt-3" role="alert">
-       {{message_obj.0.message}}
+        {{ message_obj.0.message }}
     </div>
     <div class="container mt-5">
-        <h1>system Station</h1>
+        <h1>System Station</h1>
         <hr>
         <div class="row">
             <div class="col-md-6">
@@ -15,7 +17,7 @@
                             <hr>
                             <div class="mb-3">
                                 <label for="question" class="form-label">Message</label>
-                                <input type="text" class="form-control" name="message">
+                                <textarea class="form-control" name="message" rows="10"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
