@@ -1,13 +1,13 @@
 {% include 'common/header.html' %} {% include 'common/nav.html' %}
 <div class="main-content">
     <div class="alert alert-warning mt-3" role="alert">
-        This is a system message for you. Please pay attention to it!
+        {{message_obj.0.message}}
     </div>
     <div class="container mt-5">
         <h1>Account Management</h1>
         <hr>
         <div class="d-flex justify-content-end mb-3">
-            <a href="#" class="btn btn-primary">Add Account</a>
+            <a href="/authen/adduser/" class="btn btn-primary">Add Account</a>
         </div>
         <table class="table">
             <thead>
@@ -31,42 +31,21 @@
                         {% endif %}
                     </td>
                     <td>{% if user.login_status == '1' %}
-                        Logged in
+                        <span style="color:green">Logged in</span>
                         {% else %}
-                        Not logged in
+                        <span style="color:red">Not logged in</span>
                         {% endif %}
                     </td>
                     <td>
-                {% endfor %}
                         <div class="btn-group">
-                            <a href="#" class="btn btn-warning btn-sm">Blocked</a>
-                            <a href="#" class="btn btn-danger btn-sm">Remove</a>
+                            {% if user.user_name != 'admin' %}
+                               <a href="/authen/remove/{{user.user_id}}/" class="btn btn-danger btn-sm">Remove</a>
+                            {% endif %}
                         </div>
-                    </td>
+                    </td>    
+                {% endfor %}
                 </tr>
             </tbody>
         </table>
-    </div>
-    <div class="pagination" style="display: flex; justify-content: center;">
-        <span class="step-links">
-            {% if users.has_previous %}
-            <a href="?page=1">&laquo; First</a>
-            <a href="?page={{users.previous_page_number}}">&lsaquo;Previous</a>
-            {% else %}
-            <span class="disabled">&laquo; First</span>
-            <span class="disabled">&lsaquo;Previous</span>
-            {% endif %}
-
-            <span class="current-page">
-               Page {{users.number}} of {{users.paginator.num_pages}}.
-            </span>
-            {% if user.has_next %}
-                <a href="?page={{ users.next_page_number}}">Next &rsaquo;</a>
-                <a href="?page={{ users.paginator.num_pages}}">Last &raquo;</a>
-            {% else %}
-                <span class="disabled">Next &rsaquo;</span>
-                <span class="disabled">Last &raquo;</span>
-            {% endif %}
-        </span>
     </div>
 </div>

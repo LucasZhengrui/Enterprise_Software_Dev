@@ -1,4 +1,5 @@
 from django.db import models
+from disaster_chat.models import Message
 
 class DisasterUser(models.Model):
     user_id = models.IntegerField(primary_key=True)
