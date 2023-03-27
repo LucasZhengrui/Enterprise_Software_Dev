@@ -24,5 +24,6 @@ urlpatterns = [
     path('authen/', include('disaster_authen.urls')),
     path('chat/', include('disaster_chat.urls')),
     path('dashboard/', include('disaster_dashboard.urls')),
-    path('edit/', include('disaster_edit.urls')),
+    path('', include('disaster_edit.urls')),
+    # path('', include('disaster_edit.urls')),
 ]

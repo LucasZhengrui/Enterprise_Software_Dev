@@ -1,0 +1,19 @@
+<!-- {% include 'common/header.html' %}
+{% include 'common/nav.html' %} -->
+
+{% block content %}
+    <h1>
+        Update page
+    </h1>
+    <p>
+        Dis_id: {{ datamsg.id }}
+        <!-- created: {{ datamsg.created_date }} -->
+    </p>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" name="submit">
+            Save
+        </button>
+    </form>
+{% endblock %}
