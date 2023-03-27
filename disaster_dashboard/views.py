@@ -115,7 +115,7 @@ def create_disaster_map():
         locations=list(counts.values_list('Country', flat=True)),
         z=list(counts.values_list('disaster_count', flat=True)),
         locationmode='country names',
-        colorscale='Reds',
+        colorscale='Deep',
         colorbar_title='Disaster Count'
     )]
 
@@ -123,7 +123,7 @@ def create_disaster_map():
     layout = go.Layout(
         title=go.layout.Title(text='Disaster Map'),
         geo=go.layout.Geo(
-            projection_type='natural earth',
+            projection_type='equirectangular',
             showcoastlines=True
         ),
         width=1200,  # Set the width of the drawing board
