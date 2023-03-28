@@ -123,10 +123,10 @@ def create_disaster_map():
     layout = go.Layout(
         title=go.layout.Title(text='Disaster Map'),
         geo=go.layout.Geo(
-            projection_type='equirectangular',
+            projection_type='natural earth',
             showcoastlines=True
         ),
-        width=1200,  # Set the width of the drawing board
+        width=1100,  # Set the width of the drawing board
         height=400,  # Set the height of the drawing board
         margin=dict(l=20, r=20, t=40, b=20)  # Set panel margins
     )
