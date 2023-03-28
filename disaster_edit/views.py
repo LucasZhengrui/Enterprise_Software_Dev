@@ -20,6 +20,7 @@ def index(request, show_id):
     return render(request, 'disaster_edit/index.html', {'list': myList, 'message_obj': message_obj})
 
 def summary_edit(request, id):
+    message_obj = get_message_obj()
     datamsg = get_object_or_404(summary, id=id)
     if request.method == "POST":
         form = DataForm(request.POST, instance=datamsg)
@@ -30,4 +31,4 @@ def summary_edit(request, id):
             return redirect("/", id = datamsg.id)
     else:
         form = DataForm(instance=datamsg)
-    return render(request, 'disaster_edit/edit.html', {'form': form, 'datamsg': datamsg})
+    return render(request, 'disaster_edit/edit.html', {'form': form, 'datamsg': datamsg, 'message_obj': message_obj})

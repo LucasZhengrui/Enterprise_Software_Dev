@@ -1,19 +1,58 @@
-<!-- {% include 'common/header.html' %}
-{% include 'common/nav.html' %} -->
+{% include 'common/header.html' %}
+{% include 'common/nav.html' %}
+<div class="main-content">
+    <div class="alert alert-warning mt-3" role="alert">
+        {{ message_obj.0.message }}
+    </div>
+    {% block content %}
+        <h1 class="mb-4" style="margin-left: 30px;">
+            Update Page: {{ datamsg.id }}
+        </h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-6" style="margin-left: 30px;">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.Dis_ID.auto_id }}">Dis_ID:</label>
+                        <input type="text" name="{{ form.Dis_ID.name }}" value="{{ form.Dis_ID.value|stringformat:'s' }}" class="form-control" id="{{ form.Dis_ID.auto_id }}" required>
+                    </div>
+                    <br><div class="form-group">
+                        <label for="{{ form.Year.auto_id }}">Year:</label>
+                        <input type="text" name="{{ form.Year.name }}" value="{{ form.Year.value|stringformat:'s' }}" class="form-control" id="{{ form.Year.auto_id }}" required>
+                    </div>
+                    <br><div class="form-group">
+                        <label for="{{ form.Disaster_Group.auto_id }}">Disaster Group:</label>
+                        <input type="text" name="{{ form.Disaster_Group.name }}" value="{{ form.Disaster_Group.value|stringformat:'s' }}" class="form-control" id="{{ form.Disaster_Group.auto_id }}" required>
+                    </div>
+                    <br><div class="form-group">
+                        <label for="{{ form.Disaster_Type.auto_id }}">Disaster Type:</label>
+                        <input type="text" name="{{ form.Disaster_Type.name }}" value="{{ form.Disaster_Type.value|stringformat:'s' }}" class="form-control" id="{{ form.Disaster_Type.auto_id }}" required>
+                    </div>
+                    <br><div class="form-group">
+                        <label for="{{ form.Country.auto_id }}">Country:</label>
+                        <input type="text" name="{{ form.Country.name }}" value="{{ form.Country.value|stringformat:'s' }}" class="form-control" id="{{ form.Country.auto_id }}" required>
+                    </div>
+                    <br><div class="form-group">
+                        <label for="{{ form.ISO.auto_id }}">ISO:</label>
+                        <input type="text" name="{{ form.ISO.name }}" value="{{ form.ISO.value|stringformat:'s' }}" class="form-control" id="{{ form.ISO.auto_id }}" required>
+                    </div>
+                    <br><div class="form-group">
+                        <label for="{{ form.Total_Affected.auto_id }}">Total Affected:</label>
+                        <input type="text" name="{{ form.Total_Affected.name }}" value="{{ form.Total_Affected.value|stringformat:'s' }}" class="form-control" id="{{ form.Total_Affected.auto_id }}" required>
+                    </div>
+                    <br><div class="form-group">
+                        <label for="{{ form.Total_Damages.auto_id }}">Total Damages:</label>
+                        <input type="text" name="{{ form.Total_Damages.name }}" value="{{ form.Total_Damages.value|stringformat:'s' }}" class="form-control" id="{{ form.Total_Damages.auto_id }}" required>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary" name="submit">
+                        Save
+                    </button> &nbsp;&nbsp;
+                    <a href="/list/" class="btn btn-primary">Return to userlist</a>
+                </form>
+            </div>
+        </div>
+    {% endblock %}
+</div>
 
-{% block content %}
-    <h1>
-        Update page
-    </h1>
-    <p>
-        Dis_id: {{ datamsg.id }}
-        <!-- created: {{ datamsg.created_date }} -->
-    </p>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" name="submit">
-            Save
-        </button>
-    </form>
-{% endblock %}
