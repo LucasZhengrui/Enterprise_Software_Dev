@@ -332,7 +332,7 @@ P.S **8000** is decided by what did you input in 3.1.3
 
 #### 3.2.2 Clone the repository or pull the code from Github
 ``` shell
-    git clone git@github.com:LucasZhengrui/Enterprise_Software_Dev_Note.git
+    git clone https://github.com/LucasZhengrui/Enterprise_Software_Dev_Note.git
 ```
 Or if you have cloned before
 
