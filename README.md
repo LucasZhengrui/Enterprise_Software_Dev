@@ -266,3 +266,58 @@ disaster_trash_list： 用于显示已删除的数据+恢复逻辑删除状态�
 | Admin1 Code                   | 一级行政区划的代码                     |
 | Admin2 Code                   | 二级行政区划的代码                     |
 | Geo Locations                 | 该灾害事件的地理位置信息             |
+
+## Natural Disaster Management
+
+### 1 - About us
+
+Our website application refers of the open source data from https://www.kaggle.com/datasets/brsdincer/all-natural-disasters-19002021-eosdis. This website application allows users to check disaster data with login or without login, which mean that clients can browse as a user or as a guest. And this website application have mutliple views for the database, which would be avaliable for different kind of users.
+
+### 2 - Main features
+
+* View the summary of disaster data
+* View the detail of disaster data
+* Edit the summary of disaster data
+* Archive the data
+* Recover the data
+* Differert views for the data
+* Message system
+* User list
+* Login and register
+* Specific data downloader
+
+### 3 - Installation
+
+3.1 If you are using Codio:
+
+3.1.1 Create a virtual environment in the terminate of Codio
+``` shell
+    python3 -m venv .venv 
+    source .venv/bin/activate 
+```
+
+3.1.2 Clone the repository or pull the code from Github
+``` shell
+    git clone git@github.com:LucasZhengrui/Enterprise_Software_Dev_Note.git
+```
+Or
+
+``` shell
+    git pull origin main
+```
+
+3.1.3 Changed the site details in **ALLOWED_HOSTS** of ```mysite/setting.py```
+
+For example:
+
+``` shell
+    ALLOWED_HOSTS = ['127.0.0.1','albumhexagon-canvasgenesis-8000.codio-box.uk']
+```
+
+3.1.4 Run the website application
+
+``` shell
+    python3 manage.py runserver 0.0.0.0:8000
+```
+
+P.S **8000** is decided by what did you input in 3.1.3
