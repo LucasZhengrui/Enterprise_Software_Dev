@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-+@)gil&l(p2^$w4ztf1b=#%55m2zo_-7#bhfqnh_2yh8_6sr=q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','albumhexagon-canvasgenesis-8000.codio-box.uk']
+ALLOWED_HOSTS = ['127.0.0.1','albumhexagon-canvasgenesis-8000.codio-box.uk','sharonpackage-expandfood-3000.codio-box.uk']
 
 
 # Application definition
