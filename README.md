@@ -2,7 +2,7 @@
 
 ## 1 - About us
 
-Our website application refers to the open-source data from https://www.kaggle.com/datasets/brsdincer/all-natural-disasters-19002021-eosdis. This website application allows users to check disaster data with login or without login, which means that clients can browse as a user or as a guest. And this website application has multiple views for the database, which would be available for different kinds of users.
+Our website application refers to the open-source data from https://www.kaggle.com/datasets/brsdincer/all-natural-disasters-19002021-eosdis, which used Django for the database and its creation, and edit operations. This website application allows users to check disaster data with login or without login, which means that clients can browse as a user or as a guest. And this website application has multiple views for the database, which would be available for different kinds of users. To be specific, we used plotly to improve the view of [dashboard](https://disaster-management.onrender.com/dashboard/). We can also announce a message to the website by using [SystemMessage](https://disaster-management.onrender.com/chat/), and the message can be shown on each page.
 
 ## 2 - Main features
 
@@ -25,7 +25,7 @@ Our website application refers to the open-source data from https://www.kaggle.c
 
 ### 4.1 If you are using Codio:
 
-#### 4.1.1 Create a virtual environment in the terminal of Codio
+#### 4.1.1 Create a virtual environment and activate it in the terminal of Codio
 ``` shell
     python3 -m venv .venv 
 ```
@@ -76,7 +76,7 @@ P.S **8000** is decided by what did you input in 3.1.3
 
 ### 4.2 If you are using a local editor, such as Visual Studio Code, or Mac Terminal:
 
-#### 4.2.1 Create a virtual environment in the terminal
+#### 4.2.1 Create a virtual environment and activate it in the terminal
 ``` shell
     python3 -m venv .venv 
 ```
