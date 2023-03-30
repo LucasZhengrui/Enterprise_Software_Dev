@@ -340,7 +340,7 @@ As for the Plotly in terminal
 
 P.S **8000** is decided by what did you input in 3.1.3
 
-### 4.2 If you are using local editer, such us Visual Studio Code, or Mac Terminal:
+### 4.2 If you are using a local editor, such as Visual Studio Code, or Mac Terminal:
 
 #### 4.2.1 Create a virtual environment in the terminal
 ``` shell
@@ -386,7 +386,11 @@ As for the Plotly in terminal
     python3 manage.py runserver
 ```
 
-## 5 Details of deploying the website application
+## 5 Test
+
+Besides the disaster table app, we have done unit testing for other apps. The table app does not need us to test inside the app, but we have their related testing in other apps. 
+
+## 6 Details of deploying the website application
 
 The website application has been deployed to Render, here is its URL: https://disaster-management.onrender.com/ .
 
