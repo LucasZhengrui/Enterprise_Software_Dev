@@ -281,22 +281,26 @@ Our website application refers of the open source data from https://www.kaggle.c
 * Archive the data
 * Recover the data
 * Differert views for the data
-* Message system
+* Message system station
 * User list
 * Login and register
 * Specific data downloader
 
-## 3 - Installation
+## 3 - Database overview
 
-### 3.1 If you are using Codio:
+![](https://i.imgur.com/VKXMjLK.png)
 
-#### 3.1.1 Create a virtual environment in the terminate of Codio
+## 4 - Installation
+
+### 4.1 If you are using Codio:
+
+#### 4.1.1 Create a virtual environment in the terminate of Codio
 ``` shell
     python3 -m venv .venv 
     source .venv/bin/activate 
 ```
 
-#### 3.1.2 Clone the repository or pull the code from Github
+#### 4.1.2 Clone the repository or pull the code from Github
 ``` shell
     git clone git@github.com:LucasZhengrui/Enterprise_Software_Dev_Note.git
 ```
@@ -306,7 +310,7 @@ Or if you have cloned before
     git pull origin main
 ```
 
-#### 3.1.3 Changed the site details in **ALLOWED_HOSTS** of ```mysite/setting.py```
+#### 4.1.3 Changed the site details in **ALLOWED_HOSTS** of ```mysite/setting.py```
 
 For example:
 
@@ -314,7 +318,21 @@ For example:
     ALLOWED_HOSTS = ['127.0.0.1','albumhexagon-canvasgenesis-8000.codio-box.uk']
 ```
 
-#### 3.1.4 Run the website application
+#### 4.1.4 Install Django and Plotly in terminal
+
+As for the Django installation
+
+``` shell
+    pip install django
+```
+
+As for the Plotly in terminal
+
+``` shell
+    pip install plotly
+```
+
+#### 4.1.5 Run the website application
 
 ``` shell
     python3 manage.py runserver 0.0.0.0:8000
@@ -322,17 +340,17 @@ For example:
 
 P.S **8000** is decided by what did you input in 3.1.3
 
-### 3.2 If you are using local editer, such us Visual Studio Code, or Mac Terminal:
+### 4.2 If you are using local editer, such us Visual Studio Code, or Mac Terminal:
 
-#### 3.2.1 Create a virtual environment in the terminal
+#### 4.2.1 Create a virtual environment in the terminal
 ``` shell
     python3 -m venv .venv 
     source .venv/bin/activate 
 ```
 
-#### 3.2.2 Clone the repository or pull the code from Github
+#### 4.2.2 Clone the repository or pull the code from Github
 ``` shell
-    git clone https://github.com/LucasZhengrui/Enterprise_Software_Dev_Note.git
+    git clone git@github.com:LucasZhengrui/Enterprise_Software_Dev_Note.git
 ```
 Or if you have cloned before
 
@@ -340,7 +358,7 @@ Or if you have cloned before
     git pull origin main
 ```
 
-#### 3.2.3 Changed the site details in **ALLOWED_HOSTS** of ```mysite/setting.py```
+#### 4.2.3 Changed the site details in **ALLOWED_HOSTS** of ```mysite/setting.py```
 
 For example:
 
@@ -348,8 +366,38 @@ For example:
     ALLOWED_HOSTS = ['127.0.0.1','albumhexagon-canvasgenesis-8000.codio-box.uk']
 ```
 
-#### 3.2.4 Run the website application
+#### 4.2.4 Install Django and Plotly in terminal
+
+As for the Django installation
+
+``` shell
+    pip install django
+```
+
+As for the Plotly in terminal
+
+``` shell
+    pip install plotly
+```
+
+#### 4.2.5 Run the website application
 
 ``` shell
     python3 manage.py runserver
+```
+
+## 5 Details of deploying the website application
+
+The website application has been deployed to Render, here is its URL: https://disaster-management.onrender.com/ .
+
+Build command:
+
+``` shell
+    pip install --upgrade pip && pip install -r requirements.txt
+```
+
+Start command:
+
+``` shell
+    gunicorn mysite.wsgi:application --worker-class=gevent --worker-connections=1000 --workers=4 --bind=0.0.0.0:$PORT
 ```
