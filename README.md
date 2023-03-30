@@ -271,7 +271,7 @@ disaster_trash_list： 用于显示已删除的数据+恢复逻辑删除状态�
 
 ## 1 - About us
 
-Our website application refers of the open source data from https://www.kaggle.com/datasets/brsdincer/all-natural-disasters-19002021-eosdis. This website application allows users to check disaster data with login or without login, which mean that clients can browse as a user or as a guest. And this website application have mutliple views for the database, which would be avaliable for different kind of users.
+Our website application refers to the open-source data from https://www.kaggle.com/datasets/brsdincer/all-natural-disasters-19002021-eosdis. This website application allows users to check disaster data with login or without login, which means that clients can browse as a user or as a guest. And this website application has multiple views for the database, which would be available for different kinds of users.
 
 ## 2 - Main features
 
@@ -280,7 +280,7 @@ Our website application refers of the open source data from https://www.kaggle.c
 * Edit the summary of disaster data
 * Archive the data
 * Recover the data
-* Differert views for the data
+* Different views for the data (Maps, pie graph, and line chart)
 * Message system station
 * User list
 * Login and register
@@ -294,7 +294,7 @@ Our website application refers of the open source data from https://www.kaggle.c
 
 ### 4.1 If you are using Codio:
 
-#### 4.1.1 Create a virtual environment in the terminate of Codio
+#### 4.1.1 Create a virtual environment in the terminal of Codio
 ``` shell
     python3 -m venv .venv 
     source .venv/bin/activate 
@@ -315,7 +315,7 @@ Or if you have cloned before
 For example:
 
 ``` shell
-    ALLOWED_HOSTS = ['127.0.0.1','albumhexagon-canvasgenesis-8000.codio-box.uk']
+    ALLOWED_HOSTS = ['127.0.0.1','albumhexagon-canvasgenesis-8000.codio-box.uk','sharonpackage-expandfood-8000.codio-box.uk','disaster-management.onrender.com']
 ```
 
 #### 4.1.4 Install Django and Plotly in terminal
@@ -350,7 +350,7 @@ P.S **8000** is decided by what did you input in 3.1.3
 
 #### 4.2.2 Clone the repository or pull the code from Github
 ``` shell
-    git clone git@github.com:LucasZhengrui/Enterprise_Software_Dev_Note.git
+    git clone https://github.com/LucasZhengrui/Enterprise_Software_Dev_Note.git
 ```
 Or if you have cloned before
 
@@ -363,7 +363,7 @@ Or if you have cloned before
 For example:
 
 ``` shell
-    ALLOWED_HOSTS = ['127.0.0.1','albumhexagon-canvasgenesis-8000.codio-box.uk']
+    ALLOWED_HOSTS = ['127.0.0.1','localhost']
 ```
 
 #### 4.2.4 Install Django and Plotly in terminal
